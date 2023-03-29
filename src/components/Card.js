@@ -44,16 +44,18 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
             </div>
           )}
         </div>
-        <div>Bucket: {card.bucketId}</div>
-        <small
+        <div
           onClick={() => {
             dispatch(addItem(card.name, card.link));
             setVideo(true);
           }}
-          className="text-dark-2 cursor-pointer"
+          className="text-dark-2 text-sm cursor-pointer"
         >
           Click here to open link
-        </small>
+        </div>
+        <div className="mt-2">
+          <span className="tab">{card.bucketId}</span>
+        </div>
       </div>
       {video && (
         <>

@@ -19,5 +19,12 @@
 .card h2 {
   font-size: 1.5rem;
   font-weight: 500;
-  margin-bottom: 0.5rem;
+}
+.card .tab {
+  background-color: #f1f3f4;
+  color: #606469;
+  border-radius: 0.3rem;
+  font-weight: 500;
+  font-size: 0.8rem;
+  padding: 0.3rem 1rem;
 }
