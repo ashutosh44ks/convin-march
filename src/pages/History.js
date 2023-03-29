@@ -1,12 +1,22 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getItems } from "../redux";
 
 const History = () => {
-  const history = useSelector((state) => state.history.history);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getItems());
+  }, []);
+  const { loading, history, error } = useSelector((state) => state.history);
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold text-dark">History</h1>
       <div className="my-5">
-        {history.length > 0 ? (
+        {loading ? (
+          <div className="text-dark-2">Loading...</div>
+        ) : error ? (
+          <div className="text-dark-2">{error}</div>
+        ) : history.length > 0 ? (
           history.map((item) => (
             <div key={item.name + item.link + item.time}>
               <ul className="text-dark-2">

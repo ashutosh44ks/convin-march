@@ -64,7 +64,7 @@ export const getCards = () => {
   return (dispatch) => {
     dispatch(getCardsRequest());
     axios
-      .get("http://localhost:3004/cards")
+      .get(process.env.REACT_APP_BASE_API_URL + "/cards")
       .then((response) => {
         const cards = response.data;
         dispatch(getCardsSuccess(cards));
@@ -79,7 +79,7 @@ export const createCard = (bucketId, name, link) => {
   return (dispatch) => {
     dispatch(createCardRequest());
     axios
-      .post("http://localhost:3004/cards", { bucketId, name, link})
+      .post(process.env.REACT_APP_BASE_API_URL + "/cards", { bucketId, name, link })
       .then((response) => {
         const card = response.data;
         dispatch(createCardSuccess(card));
@@ -94,7 +94,7 @@ export const deleteCard = (id) => {
   return (dispatch) => {
     dispatch(deleteCardRequest());
     axios
-      .delete(`http://localhost:3004/cards/${id}`)
+      .delete(`${process.env.REACT_APP_BASE_API_URL}/cards/${id}`)
       .then((response) => {
         dispatch(deleteCardSuccess(id));
       })
@@ -108,7 +108,7 @@ export const editCard = (bucketId, id) => {
   return (dispatch) => {
     dispatch(editCardRequest());
     axios
-      .patch(`http://localhost:3004/cards/${id}`, { bucketId, id })
+      .patch(`${process.env.REACT_APP_BASE_API_URL}/cards/${id}`, { bucketId, id })
       .then((response) => {
         const card = response.data;
         dispatch(editCardSuccess(card));
