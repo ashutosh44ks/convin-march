@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { editCard } from "../redux";
 
 const EditCard = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { cardId } = useParams();
+  const navigate = useNavigate();
+  const { id } = useParams();
 
   const card = useSelector((state) =>
-    state.cards.cards.find((card) => card.cardId === cardId)
+    state.cards.cards.find((card) => card.id === id)
   );
   const [inputBucketId, setInputBucketId] = useState("");
 
@@ -20,7 +20,7 @@ const EditCard = () => {
         className="mt-4"
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch(editCard(inputBucketId, cardId));
+          dispatch(editCard(inputBucketId, id));
           navigate("/");
         }}
       >

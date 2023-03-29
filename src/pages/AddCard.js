@@ -18,14 +18,7 @@ const AddCard = () => {
         className="mt-4"
         onSubmit={(e) => {
           e.preventDefault();
-          dispatch(
-            createCard(
-              bucketId,
-              name,
-              link,
-              Math.random().toString(36).substr(2, 9)
-            )
-          );
+          dispatch(createCard(bucketId, name, link));
           navigate("/");
         }}
       >

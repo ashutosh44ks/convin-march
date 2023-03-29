@@ -1,17 +1,137 @@
-import { CREATE_CARD, EDIT_CARD, DELETE_CARD } from "./CardTypes";
+import {
+  CREATE_CARD,
+  EDIT_CARD,
+  DELETE_CARD,
+  GET_CARDS_REQUEST,
+  GET_CARDS_SUCCESS,
+  GET_CARDS_FAILURE,
+  CREATE_CARD_REQUEST,
+  CREATE_CARD_SUCCESS,
+  CREATE_CARD_FAILURE,
+  DELETE_CARD_REQUEST,
+  DELETE_CARD_SUCCESS,
+  DELETE_CARD_FAILURE,
+  EDIT_CARD_REQUEST,
+  EDIT_CARD_SUCCESS,
+  EDIT_CARD_FAILURE,
+} from "./CardTypes";
+import axios from "axios";
 
 // Action Creators
-export const createCard = (bucketId, name, link, cardId) => ({
-  type: CREATE_CARD,
-  payload: { bucketId, name, link, cardId },
+// export const createCard = (bucketId, name, link, id) => ({
+//   type: CREATE_CARD,
+//   payload: { bucketId, name, link, id },
+// });
+// export const deleteCard = (id) => ({
+//   type: DELETE_CARD,
+//   payload: { id },
+// });
+// export const editCard = (bucketId, id, updatedCardData) => ({
+//   type: EDIT_CARD,
+//   payload: { bucketId, id, updatedCardData },
+// });
+
+export const getCardsRequest = () => ({
+  type: GET_CARDS_REQUEST,
+});
+export const getCardsSuccess = (cards) => ({
+  type: GET_CARDS_SUCCESS,
+  payload: cards,
+});
+export const getCardsFailure = (error) => ({
+  type: GET_CARDS_FAILURE,
+  payload: error,
+});
+export const createCardRequest = () => ({
+  type: CREATE_CARD_REQUEST,
+});
+export const createCardSuccess = (card) => ({
+  type: CREATE_CARD_SUCCESS,
+  payload: card,
+});
+export const createCardFailure = (error) => ({
+  type: CREATE_CARD_FAILURE,
+  payload: error,
+});
+export const deleteCardRequest = () => ({
+  type: DELETE_CARD_REQUEST,
+});
+export const deleteCardSuccess = (id) => ({
+  type: DELETE_CARD_SUCCESS,
+  payload: id,
+});
+export const deleteCardFailure = (error) => ({
+  type: DELETE_CARD_FAILURE,
+  payload: error,
+});
+export const editCardRequest = () => ({
+  type: EDIT_CARD_REQUEST,
+});
+export const editCardSuccess = (card) => ({
+  type: EDIT_CARD_SUCCESS,
+  payload: card,
+});
+export const editCardFailure = (error) => ({
+  type: EDIT_CARD_FAILURE,
+  payload: error,
 });
 
-export const deleteCard = (cardId) => ({
-  type: DELETE_CARD,
-  payload: { cardId },
-});
-
-export const editCard = (bucketId, cardId, updatedCardData) => ({
-  type: EDIT_CARD,
-  payload: { bucketId, cardId, updatedCardData },
-});
+export const getCards = () => {
+  return (dispatch) => {
+    dispatch(getCardsRequest());
+    axios
+      .get("http://localhost:3004/cards")
+      .then((response) => {
+        const cards = response.data;
+        dispatch(getCardsSuccess(cards));
+      })
+      .catch((error) => {
+        const errorMsg = error.message;
+        dispatch(getCardsFailure(errorMsg));
+      });
+  };
+};
+export const createCard = (bucketId, name, link) => {
+  return (dispatch) => {
+    dispatch(createCardRequest());
+    axios
+      .post("http://localhost:3004/cards", { bucketId, name, link})
+      .then((response) => {
+        const card = response.data;
+        dispatch(createCardSuccess(card));
+      })
+      .catch((error) => {
+        const errorMsg = error.message;
+        dispatch(createCardFailure(errorMsg));
+      });
+  };
+};
+export const deleteCard = (id) => {
+  return (dispatch) => {
+    dispatch(deleteCardRequest());
+    axios
+      .delete(`http://localhost:3004/cards/${id}`)
+      .then((response) => {
+        dispatch(deleteCardSuccess(id));
+      })
+      .catch((error) => {
+        const errorMsg = error.message;
+        dispatch(deleteCardFailure(errorMsg));
+      });
+  };
+};
+export const editCard = (bucketId, id) => {
+  return (dispatch) => {
+    dispatch(editCardRequest());
+    axios
+      .patch(`http://localhost:3004/cards/${id}`, { bucketId, id })
+      .then((response) => {
+        const card = response.data;
+        dispatch(editCardSuccess(card));
+      })
+      .catch((error) => {
+        const errorMsg = error.message;
+        dispatch(editCardFailure(errorMsg));
+      });
+  };
+};

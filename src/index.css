@@ -81,7 +81,7 @@ select:hover {
   z-index: 999;
 }
 .footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   display: flex;

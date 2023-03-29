@@ -17,8 +17,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/create_card" element={<AddCard />} />
-            <Route path="/edit_card/:cardId" element={<EditCard />} />
+            <Route path="/edit_card/:id" element={<EditCard />} />
             <Route path="/history" element={<History />} />
+            <Route path="*" element={<div>404</div>} />
           </Routes>
         </div>
       </BrowserRouter>

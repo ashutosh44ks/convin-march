@@ -11,31 +11,31 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
   return (
     <>
       <div
-        className={`card ${selectedCards.includes(card.cardId) && `selected`}`}
+        className={`card ${selectedCards.includes(card.id) && `selected`}`}
         onClick={() => {
-          if (selectedCards.includes(card.cardId)) {
-            setSelectedCards(selectedCards.filter((id) => id !== card.cardId));
+          if (selectedCards.includes(card.id)) {
+            setSelectedCards(selectedCards.filter((id) => id !== card.id));
           } else {
-            setSelectedCards([...selectedCards, card.cardId]);
+            setSelectedCards([...selectedCards, card.id]);
           }
         }}
       >
         <div className="flex justify-between items-center">
           <h2>{card.name}</h2>
-          {!selectedCards.includes(card.cardId) && (
+          {!selectedCards.includes(card.id) && (
             <div className="flex gap-2 items-center">
               <button
                 className="p-2"
-                onClick={() => navigate(`/edit_card/${card.cardId}`)}
+                onClick={() => navigate(`/edit_card/${card.id}`)}
               >
                 <RiEditBoxLine />
               </button>
               <button
                 className="p-2"
                 onClick={() => {
-                  dispatch(deleteCard(card.cardId));
+                  dispatch(deleteCard(card.id));
                   setSelectedCards(
-                    selectedCards.filter((id) => id !== card.cardId)
+                    selectedCards.filter((id) => id !== card.id)
                   );
                 }}
               >
