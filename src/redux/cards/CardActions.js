@@ -1,7 +1,4 @@
 import {
-  CREATE_CARD,
-  EDIT_CARD,
-  DELETE_CARD,
   GET_CARDS_REQUEST,
   GET_CARDS_SUCCESS,
   GET_CARDS_FAILURE,
@@ -15,21 +12,8 @@ import {
   EDIT_CARD_SUCCESS,
   EDIT_CARD_FAILURE,
 } from "./CardTypes";
-import axios from "axios";
-
 // Action Creators
-// export const createCard = (bucketId, name, link, id) => ({
-//   type: CREATE_CARD,
-//   payload: { bucketId, name, link, id },
-// });
-// export const deleteCard = (id) => ({
-//   type: DELETE_CARD,
-//   payload: { id },
-// });
-// export const editCard = (bucketId, id, updatedCardData) => ({
-//   type: EDIT_CARD,
-//   payload: { bucketId, id, updatedCardData },
-// });
+import axios from "axios";
 
 export const getCardsRequest = () => ({
   type: GET_CARDS_REQUEST,

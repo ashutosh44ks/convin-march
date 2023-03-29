@@ -28,39 +28,8 @@ const initialState = {
   error: "",
 };
 const cardReducer = (state = initialState, action) => {
-  // const { id } = action.payload || {};
 
   switch (action.type) {
-    // case CREATE_CARD: {
-    //   const cardData = action.payload;
-    //   return {
-    //     ...state,
-    //     cards: [...state.cards, cardData],
-    //   };
-    // }
-    // case DELETE_CARD: {
-    //   const newCards = state.cards.filter((card) => card.id !== id);
-    //   return {
-    //     ...state,
-    //     cards: [...newCards],
-    //   };
-    // }
-    // case EDIT_CARD: {
-    //   const { bucketId, id } = action.payload;
-    //   const newCards = state.cards.map((card) => {
-    //     if (card.id === id) {
-    //       return {
-    //         ...card,
-    //         bucketId: bucketId,
-    //       };
-    //     }
-    //     return card;
-    //   });
-    //   return {
-    //     ...state,
-    //     cards: newCards,
-    //   };
-    // }
 
     case GET_CARDS_REQUEST:
       return {
@@ -102,7 +71,6 @@ const cardReducer = (state = initialState, action) => {
         loading: true,
       };
     case DELETE_CARD_SUCCESS:
-      console.log(state.cards.filter((card) => card.id !== action.payload))
       return {
         loading: false,
         cards: state.cards.filter((card) => card.id !== action.payload),

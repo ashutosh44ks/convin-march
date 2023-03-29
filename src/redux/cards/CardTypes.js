@@ -1,7 +1,3 @@
-// export const CREATE_CARD = "CREATE_CARD";
-// export const DELETE_CARD = "DELETE_CARD";
-// export const EDIT_CARD = "EDIT_CARD";
-
 export const GET_CARDS_REQUEST = "GET_CARDS_REQUEST";
 export const GET_CARDS_SUCCESS = "GET_CARDS_SUCCESS";
 export const GET_CARDS_FAILURE = "GET_CARDS_FAILURE";
