@@ -1,5 +1,6 @@
 # Deployment (Github Pages)
 [Click here to view deployment](https://ashutosh44ks.github.io/convin-march/)
+(This app is best viewed in local)
 
 ## Technologies Used
 - React, React Router, React-Redux, Redux Middleware - Thunk, Tailwind CSS
