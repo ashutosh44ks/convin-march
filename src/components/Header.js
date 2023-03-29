@@ -10,7 +10,7 @@ const Header = () => {
       </div>
       <div
         className="bg-blue cursor-pointer text-white"
-        onClick={() => navigate("/history")}
+        onClick={() => navigate("/convin-march/history")}
       >
         History
       </div>

@@ -56,7 +56,7 @@ const Home = () => {
         </button>
         <button
           className="btn btn-primary"
-          onClick={() => navigate("/create_card")}
+          onClick={() => navigate("/convin-march/create_card")}
         >
           Create Card
         </button>
