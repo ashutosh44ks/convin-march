@@ -27,7 +27,7 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
             <div className="flex gap-2 items-center">
               <button
                 className="p-2"
-                onClick={() => navigate(`/convin-march/edit_card/${card.id}`)}
+                onClick={() => navigate(`/convin-march/edit_card/${card.bucketId}/${card.id}`)}
               >
                 <RiEditBoxLine />
               </button>

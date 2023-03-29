@@ -18,7 +18,7 @@ function App() {
             <Route path="/convin-march/" element={<Home />} />
             <Route path="/" element={<Home />} />
             <Route path="/convin-march/create_card" element={<AddCard />} />
-            <Route path="/convin-march/edit_card/:id" element={<EditCard />} />
+            <Route path="/convin-march/edit_card/:bucketId/:id" element={<EditCard />} />
             <Route path="/convin-march/history" element={<History />} />
             <Route path="*" element={<div>404</div>} />
           </Routes>
