@@ -19,7 +19,7 @@ const AddCard = () => {
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(createCard(bucketId, name, link));
-          navigate("/");
+          navigate("/convin-march/");
         }}
       >
         <div className="my-3">

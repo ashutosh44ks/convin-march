@@ -21,7 +21,7 @@ const EditCard = () => {
         onSubmit={(e) => {
           e.preventDefault();
           dispatch(editCard(inputBucketId, id));
-          navigate("/");
+          navigate("/convin-march/");
         }}
       >
         <div className="my-3">

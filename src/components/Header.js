@@ -5,7 +5,7 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <div className="flex justify-between header">
-      <div className="cursor-pointer font-medium" onClick={() => navigate("/")}>
+      <div className="cursor-pointer font-medium" onClick={() => navigate("/convin-march/")}>
         Card Manager
       </div>
       <div
