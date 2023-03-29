@@ -70,8 +70,7 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
               height="315"
               src={card.link}
               title="YouTube video player"
-              frameborder="0"
-              allowfullscreen
+              allowFullScreen
             ></iframe>
           </div>
           <div className="modal-overlay" onClick={() => setVideo(false)}></div>
