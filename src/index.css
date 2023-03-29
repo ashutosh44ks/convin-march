@@ -2,13 +2,87 @@
 @tailwind components;
 @tailwind utilities;
 
-.card {
-  padding: 1rem;
-  border: solid 1px gainsboro;
-  width: 20vw;
-  min-width: 10rem;
-  cursor: pointer;
+.btn {
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in-out;
 }
-.card.selected {
-  border: solid 1px #000;
+.btn-primary {
+  background-color: #428f9e;
+  color: white;
+  border: solid 1px #428f9e;
+}
+.btn-primary:hover {
+  background-color: #03859f;
+}
+.btn-secondary {
+  border: solid 1px #dae7f2;
+  background-color: transparent;
+  color: #39465e;
+}
+.btn-secondary:hover {
+  background-color: #f6f7f8;
+}
+.bg-blue {
+  background-color: #428f9e;
+}
+.text-dark {
+  color: #202124;
+}
+.text-dark-2 {
+  color: #3c4043;
+}
+input,
+textarea,
+select {
+  box-sizing: border-box;
+  padding: 0.5rem;
+  border: solid 1px #dae7f2;
+  border-radius: 0.5rem;
+  color: #39465e;
+  transition: all 0.2s ease-in-out;
+}
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border: solid 1px #428f9e;
+}
+input:hover,
+textarea:hover,
+select:hover {
+  background-color: #e8f2fc;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  padding-top: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  padding: 1rem;
+  border-top: solid 1px #dadce0;
+  width: 100%;
 }

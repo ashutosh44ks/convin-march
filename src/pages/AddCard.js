@@ -12,8 +12,8 @@ const AddCard = () => {
   const [link, setLink] = useState("");
 
   return (
-    <div className="mt-10">
-      <h1 className="text-2xl font-bold">Add Card</h1>
+    <div className="p-8">
+      <h1 className="text-2xl font-bold text-dark">Add Card</h1>
       <form
         className="mt-4"
         onSubmit={(e) => {
@@ -29,46 +29,37 @@ const AddCard = () => {
           navigate("/");
         }}
       >
-        <div className="my-2">
-          <label className="block text-sm font-medium text-gray-700">
-            Bucket ID
-          </label>
+        <div className="my-3">
+          <label className="text-dark-2">Bucket ID</label>
           <input
-            className="border-gray-300"
+            className="w-full"
             type="text"
             value={bucketId}
             onChange={(e) => setBucketId(e.target.value)}
             required
           />
         </div>
-        <div className="my-2">
-          <label className="block text-sm font-medium text-gray-700">
-            Name
-          </label>
+        <div className="my-3">
+          <label className="text-dark-2">Name</label>
           <input
-            className="border-gray-300"
+            className="w-full"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
-        <div className="my-2">
-          <label className="block text-sm font-medium text-gray-700">
-            Link
-          </label>
+        <div className="my-3">
+          <label className="text-dark-2">Link</label>
           <input
-            className="border-gray-300"
+            className="w-full"
             type="text"
             value={link}
             onChange={(e) => setLink(e.target.value)}
             required
           />
         </div>
-        <button
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
-          type="submit"
-        >
+        <button className="btn btn-primary mt-4" type="submit">
           Create Card
         </button>
       </form>

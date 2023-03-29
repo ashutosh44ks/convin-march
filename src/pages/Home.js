@@ -11,11 +11,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   const [selectedCards, setSelectedCards] = useState([]);
-  console.log(selectedCards);
   return (
-    <div className="m-10">
-      <h1 className="text-2xl font-bold">Cards</h1>
-      <div className="flex flex-wrap gap-4">
+    <div className="p-8">
+      <h1 className="text-2xl font-bold text-dark">Cards</h1>
+      <div className="flex flex-wrap gap-4 my-4">
         {cards.length > 0 ? (
           cards.map((card) => (
             <Card
@@ -26,25 +25,33 @@ const Home = () => {
             />
           ))
         ) : (
-          <div>No cards present </div>
+          <div className="text-dark-2">No cards present </div>
         )}
       </div>
-      {selectedCards.length > 0 && (
-        <div className="flex justify-center mt-4">
-          <button
-            onClick={() => {
-              selectedCards.forEach((cardId) => {
-                dispatch(deleteCard(cardId));
-              });
-              setSelectedCards([]);
-            }}
-          >
-            Delete Selected Cards
-          </button>
-        </div>
-      )}
-      <div className="flex justify-center mt-10">
-        <button onClick={() => navigate("/create_card")}>Create Card</button>
+      <div className="footer flex gap-8">
+        <button
+          className="btn btn-secondary"
+          onClick={() => {
+            selectedCards.forEach((cardId) => {
+              dispatch(deleteCard(cardId));
+            });
+            setSelectedCards([]);
+          }}
+          disabled={selectedCards.length === 0}
+          title={
+            selectedCards.length === 0
+              ? "Select cards to delete"
+              : "Delete selected cards"
+          }
+        >
+          Delete Selected Cards
+        </button>
+        <button
+          className="btn btn-primary"
+          onClick={() => navigate("/create_card")}
+        >
+          Create Card
+        </button>
       </div>
     </div>
   );

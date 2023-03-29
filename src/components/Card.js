@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteCard } from "../redux";
 import { useState } from "react";
+import { RiEditBoxLine, RiDeleteBin7Line, RiCloseFill } from "react-icons/ri";
 
 const Card = ({ card, selectedCards, setSelectedCards }) => {
   const dispatch = useDispatch();
@@ -12,49 +13,56 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
     <>
       <div
         className={`card ${selectedCards.includes(card.cardId) && `selected`}`}
+        onClick={() => {
+          if (selectedCards.includes(card.cardId)) {
+            setSelectedCards(selectedCards.filter((id) => id !== card.cardId));
+          } else {
+            setSelectedCards([...selectedCards, card.cardId]);
+          }
+        }}
       >
-        <h2
+        <div className="flex justify-between items-center">
+          <h2>{card.name}</h2>
+          {!selectedCards.includes(card.cardId) && (
+            <div className="flex gap-2 items-center">
+              <button
+                className="p-2"
+                onClick={() => navigate(`/edit_card/${card.cardId}`)}
+              >
+                <RiEditBoxLine />
+              </button>
+              <button
+                className="p-2"
+                onClick={() => {
+                  dispatch(deleteCard(card.cardId));
+                  setSelectedCards(
+                    selectedCards.filter((id) => id !== card.cardId)
+                  );
+                }}
+              >
+                <RiDeleteBin7Line />
+              </button>
+            </div>
+          )}
+        </div>
+        <div>Bucket: {card.bucketId}</div>
+        <small
           onClick={() => {
             setVideo(true);
           }}
+          className="text-dark-2 cursor-pointer"
         >
-          {card.name}
-        </h2>
-        <p>{card.bucketId}</p>
-        <div className="flex justify-between">
-          <button onClick={() => navigate(`/edit_card/${card.cardId}`)}>
-            Edit
-          </button>
-          <button
-            onClick={() => {
-              dispatch(deleteCard(card.cardId));
-              setSelectedCards(
-                selectedCards.filter((id) => id !== card.cardId)
-              );
-            }}
-          >
-            Delete
-          </button>
-        </div>
-        <div className="flex justify-between">
-          <button
-            onClick={() => {
-              if (selectedCards.includes(card.cardId)) {
-                setSelectedCards(
-                  selectedCards.filter((id) => id !== card.cardId)
-                );
-              } else {
-                setSelectedCards([...selectedCards, card.cardId]);
-              }
-            }}
-          >
-            Select
-          </button>
-        </div>
+          Click here to open link
+        </small>
       </div>
       {video && (
         <>
           <div className="modal">
+            <div className="flex justify-end">
+              <button onClick={() => setVideo(false)} className="p-2">
+                <RiCloseFill />
+              </button>
+            </div>
             <iframe
               width="560"
               height="315"
@@ -63,9 +71,8 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
               frameborder="0"
               allowfullscreen
             ></iframe>
-            <button onClick={() => setVideo(false)}>Close</button>
           </div>
-          <div className="modal-overlay"></div>
+          <div className="modal-overlay" onClick={() => setVideo(false)}></div>
         </>
       )}
     </>

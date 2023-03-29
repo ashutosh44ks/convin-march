@@ -14,8 +14,8 @@ const EditCard = () => {
   const [inputBucketId, setInputBucketId] = useState("");
 
   return (
-    <div className="mt-10">
-      <h1 className="text-2xl font-bold">Edit Card</h1>
+    <div className="p-8">
+      <h1 className="text-2xl font-bold text-dark">Edit Card</h1>
       <form
         className="mt-4"
         onSubmit={(e) => {
@@ -24,23 +24,23 @@ const EditCard = () => {
           navigate("/");
         }}
       >
-        <div className="my-2">
-          <label className="block text-sm font-medium text-gray-700">
+        <div className="my-3">
+          <label className="text-dark-2">
             Current Bucket ID
           </label>
           <input
-            className="border-gray-300"
+            className="w-full"
             type="text"
             value={card.bucketId}
             readOnly
           />
         </div>
-        <div className="my-2">
-          <label className="block text-sm font-medium text-gray-700">
+        <div className="my-3">
+          <label className="text-dark-2">
             New Bucket ID
           </label>
           <input
-            className="border-gray-300"
+            className="w-full"
             type="text"
             value={inputBucketId}
             onChange={(e) => setInputBucketId(e.target.value)}
@@ -48,7 +48,7 @@ const EditCard = () => {
           />
         </div>
         <button
-          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-md"
+          className="btn btn-primary mt-4"
           type="submit"
         >
           Update Bucket
