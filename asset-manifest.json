@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/convin-march/static/css/main.5f00ad91.css",
-    "main.js": "/convin-march/static/js/main.8c0925eb.js",
+    "main.js": "/convin-march/static/js/main.651bee95.js",
     "static/js/787.1b85a391.chunk.js": "/convin-march/static/js/787.1b85a391.chunk.js",
     "index.html": "/convin-march/index.html",
     "main.5f00ad91.css.map": "/convin-march/static/css/main.5f00ad91.css.map",
-    "main.8c0925eb.js.map": "/convin-march/static/js/main.8c0925eb.js.map",
+    "main.651bee95.js.map": "/convin-march/static/js/main.651bee95.js.map",
     "787.1b85a391.chunk.js.map": "/convin-march/static/js/787.1b85a391.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5f00ad91.css",
-    "static/js/main.8c0925eb.js"
+    "static/js/main.651bee95.js"
   ]
 }
