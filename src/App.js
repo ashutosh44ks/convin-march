@@ -15,10 +15,11 @@ function App() {
         <Header />
         <div className="page-template">
           <Routes>
+            <Route path="/convin-march/" element={<Home />} />
             <Route path="/" element={<Home />} />
-            <Route path="/create_card" element={<AddCard />} />
-            <Route path="/edit_card/:id" element={<EditCard />} />
-            <Route path="/history" element={<History />} />
+            <Route path="/convin-march/create_card" element={<AddCard />} />
+            <Route path="/convin-march/edit_card/:id" element={<EditCard />} />
+            <Route path="/convin-march/history" element={<History />} />
             <Route path="*" element={<div>404</div>} />
           </Routes>
         </div>
