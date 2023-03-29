@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { deleteCard } from "../redux";
+import { deleteCard, addItem } from "../redux";
 import { useState } from "react";
 import { RiEditBoxLine, RiDeleteBin7Line, RiCloseFill } from "react-icons/ri";
 
@@ -8,7 +8,6 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [video, setVideo] = useState(false);
-
   return (
     <>
       <div
@@ -48,6 +47,7 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
         <div>Bucket: {card.bucketId}</div>
         <small
           onClick={() => {
+            dispatch(addItem(card.name, card.link));
             setVideo(true);
           }}
           className="text-dark-2 cursor-pointer"

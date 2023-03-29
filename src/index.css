@@ -55,6 +55,11 @@ select:hover {
   background-color: #e8f2fc;
 }
 
+.separator {
+  border-bottom: solid 1px #dadce0;
+  margin: 1rem 0;
+}
+
 .modal {
   background-color: white;
   border-radius: 0.5rem;
