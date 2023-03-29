@@ -1,1 +1,3 @@
-export const ADD_ITEM = 'ADD_ITEM'
+export const ADD_ITEM_REQUEST = 'ADD_ITEM_REQUEST'
+export const ADD_ITEM_SUCCESS = 'ADD_ITEM_SUCCESS'
+export const ADD_ITEM_FAILURE = 'ADD_ITEM_FAILURE'
