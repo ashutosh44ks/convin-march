@@ -5,7 +5,7 @@ const initialState = {
     {
       bucketId: "bucket-A",
       name: "Card 1",
-      link: "//www.youtube.com/embed/UAnPpEfhn_s?autoplay=1&mute=1",
+      link: "//www.youtube.com/embed/UAnPpEfhn_s?autoplay=0&mute=1",
       cardId: "card-1",
     },
   ],
