@@ -1,7 +1,4 @@
 import {
-  CREATE_CARD,
-  EDIT_CARD,
-  DELETE_CARD,
   GET_CARDS_REQUEST,
   GET_CARDS_SUCCESS,
   GET_CARDS_FAILURE,
@@ -18,19 +15,11 @@ import {
 
 const initialState = {
   loading: false,
-  cards: [
-    {
-      bucketId: "bucket-A",
-      name: "Card 1",
-      link: "//www.youtube.com/embed/UAnPpEfhn_s?autoplay=0&mute=1",
-    },
-  ],
+  cards: [],
   error: "",
 };
 const cardReducer = (state = initialState, action) => {
-
   switch (action.type) {
-
     case GET_CARDS_REQUEST:
       return {
         ...state,

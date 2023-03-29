@@ -13,6 +13,7 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
       <div
         className={`card ${selectedCards.includes(card.id) && `selected`}`}
         onClick={() => {
+          // if not clicked on an svg
           if (selectedCards.includes(card.id)) {
             setSelectedCards(selectedCards.filter((id) => id !== card.id));
           } else {
@@ -32,7 +33,8 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
               </button>
               <button
                 className="p-2"
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   dispatch(deleteCard(card.id));
                   setSelectedCards(
                     selectedCards.filter((id) => id !== card.id)
@@ -45,7 +47,8 @@ const Card = ({ card, selectedCards, setSelectedCards }) => {
           )}
         </div>
         <div
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             dispatch(addItem(card.name, card.link));
             setVideo(true);
           }}
