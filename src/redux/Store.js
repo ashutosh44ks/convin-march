@@ -6,6 +6,6 @@ import thunk from 'redux-thunk'; //npm install redux-thunk
 
 const store = createStore(
   RootReducer,
-  composeWithDevTools(applyMiddleware( thunk))
+  composeWithDevTools(applyMiddleware(logger, thunk))
 );
 export default store;
