@@ -1,18 +1,18 @@
 # Deployment (Github Pages)
 [Click here to view deployment](https://ashutosh44ks.github.io/convin-march/)
-(This app is best viewed in local)
+(This app is best viewed in local, see below, as JSON-server is used as dummy backend)
 
 ## Technologies Used
 - React, React Router, React-Redux, Redux Middleware - Thunk, Tailwind CSS
 - JSON-server (as dummy backend)
 
 ## How to run locally with local server?
-1. Use REACT_APP_LOCAL_API_URL instead of REACT_APP_BASE_API_URL from the .env file in all api calls
+1. Clone repository and Switch to ```dev``` branch
 2. Run command ```json-server --watch db.json --port 3004``` to start the server
 3. Run command ```npm start``` to start client
 
 ## How to run locally?
-1. Run command ```npm start``` to start client
+Run command ```npm start``` to test prod environment
 
 ## Problem Statement
 Create an application where the following functionalities are present -

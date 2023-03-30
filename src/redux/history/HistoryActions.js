@@ -35,7 +35,7 @@ export const getItems = () => {
   return (dispatch) => {
     dispatch(getItemsRequest());
     axios
-      .get(process.env.REACT_APP_BASE_API_URL + "/history")
+      .get(process.env.REACT_APP_LOCAL_API_URL + "/history")
       .then((response) => {
         const history = response.data;
         dispatch(getItemsSuccess(history));
@@ -50,7 +50,7 @@ export const addItem = (name, link) => {
   return (dispatch) => {
     dispatch(addItemRequest());
     axios
-      .post(process.env.REACT_APP_BASE_API_URL + "/history", {
+      .post(process.env.REACT_APP_LOCAL_API_URL + "/history", {
         name,
         link,
         time: new Date().toLocaleString("en-US", {
